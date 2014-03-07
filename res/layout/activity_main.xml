@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:ads="http://schemas.android.com/apk/res-auto"
+     xmlns:foo="http://schemas.android.com/apk/res/com.divneg.heartlovemeter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#bd0142">
+        
+        <ImageView
+            android:id="@+id/icon"
+            android:src="@drawable/icon"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+          ></ImageView>
+       
+        <com.divneg.heartlovemeter.TextViewPlus
+        	android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Love Calculator"
+            android:textSize="30sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffffff"
+        	foo:customFont="litehelvetica.otf">
+    </com.divneg.heartlovemeter.TextViewPlus>
+        
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/sharebut"
+            android:layout_marginTop="5dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/share"
+            android:onClick="sharethis"/>
+        
+    </LinearLayout>
+    <!-- Border below header  -->
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:background="#8e0101"></LinearLayout>
+    
+     <com.google.android.gms.ads.AdView android:id="@+id/ad"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           ads:adSize="BANNER"
+                           ads:adUnitId="a153067f84203c3"/>
+    
+    <!-- Main Page starts here  -->
+    
+    <LinearLayout 
+        android:id="@+id/main"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:weightSum="100"
+        >
+       
+        <LinearLayout 
+        android:id="@+id/meterbar"
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_weight="40"
+        android:weightSum="100"
+        >
+     
+            <RelativeLayout
+            android:id="@+id/meterbox"
+            android:layout_weight="60"
+            android:layout_height="fill_parent"
+            android:layout_width="0dp"
+            android:background="@drawable/border"
+            >
+                <com.divneg.heartlovemeter.TextViewPlus 
+                    android:id="@+id/rate"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="65sp"
+                    android:textColor="#ffffff"
+                    android:text="--"
+                    foo:customFont="DIGITAL.TTF">
+                    </com.divneg.heartlovemeter.TextViewPlus>
+                    
+                <RelativeLayout 
+                    android:id="@+id/meter"
+                    android:background="@drawable/line"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/rate"
+                    android:layout_width="wrap_content">
+                    
+                    <ImageView
+                        android:id="@+id/beats"
+                        android:layout_centerVertical="true"
+                        android:layout_height="20dp"
+                        android:layout_width="30dp"
+                        android:src="@drawable/silent"
+                        ></ImageView>
+                    
+                </RelativeLayout>
+                
+                
+            </RelativeLayout>
+            
+            <RelativeLayout 
+                android:id="@+id/buttonbox"
+                android:layout_weight="38"
+                android:layout_width="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="fill_parent"
+                >
+                
+                <RelativeLayout 
+                    android:id="@+id/button"
+                    android:onClick="ratebutton"
+                    android:layout_height="50dp"
+                    android:background="#dddddd"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="fill_parent">
+                    
+                    <ImageView 
+                        android:id="@+id/heart"
+                        android:layout_alignParentLeft="true"
+                        android:layout_height="40dp"
+                        android:layout_width="40dp"
+                        android:src="@drawable/heart_close"/>
+                    <ImageView 
+                        android:id="@+id/switches"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="30dp"
+                        android:layout_width="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/switch_off"/>
+                    
+                </RelativeLayout>
+                 
+                 <LinearLayout 
+                     android:layout_below="@+id/button"
+       				 android:layout_width="fill_parent"
+       				 android:layout_height="3dp"
+       				 android:background="#bbbbbb"></LinearLayout>
+                
+            </RelativeLayout>
+    
+    </LinearLayout>
+    
+        <!-- Here the 45% of the screen ends -->
+        
+        <RelativeLayout
+            android:id="@+id/midpart"
+            android:layout_weight="15"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent"
+            >
+            <com.divneg.heartlovemeter.TextViewPlus
+                android:id="@+id/text"
+                android:text="Calculate your heartbeat and insert in the 
+boxes below to meassure your both love % of the 
+moment"
+                android:layout_height="wrap_content"
+               android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                foo:customFont="litehelvetica.otf"
+                android:textSize="14sp"></com.divneg.heartlovemeter.TextViewPlus>
+            
+        </RelativeLayout>
+         <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"></LinearLayout>
+        <RelativeLayout 
+             android:id="@+id/lowerpart"
+            android:layout_weight="45"
+            android:layout_marginTop="5dp"
+            android:layout_height="0dp"
+            android:layout_width="fill_parent"
+            >
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/his"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true">
+                
+                <com.divneg.heartlovemeter.TextViewPlus
+                    android:id="@+id/histext"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="HIS :  "
+                    android:textColor="#ffffff"
+                    foo:customFont="litehelvetica.otf"
+                    android:textSize="32sp"></com.divneg.heartlovemeter.TextViewPlus>
+
+                <EditText
+                    android:id="@+id/edithis"
+                    android:layout_width="80dp"
+                    android:inputType="number"
+                    android:layout_height="match_parent" />
+                
+            </LinearLayout>
+                      <LinearLayout
+                          android:layout_below="@+id/his"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/her"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true">
+                
+                           <com.divneg.heartlovemeter.TextViewPlus
+                    android:id="@+id/hertext"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="HER :  "
+                    foo:customFont="litehelvetica.otf"
+                    android:textColor="#ffffff"
+                    android:textSize="32sp"></com.divneg.heartlovemeter.TextViewPlus>
+
+                <EditText
+                    android:id="@+id/edither"
+                    android:layout_width="80dp"
+                    android:inputType="number"
+                    android:layout_height="match_parent" />
+                          
+            </LinearLayout>
+            
+                      <RelativeLayout
+                          android:layout_marginTop="20dp"
+                          android:layout_below="@+id/her"
+                          android:id="@+id/submitbut"
+                          android:layout_height="35dp"
+                          android:onClick="calculate"
+                          android:layout_width="150dp"
+                          android:layout_centerHorizontal="true"
+                          android:background="#bd0142">
+                          
+                          <com.divneg.heartlovemeter.TextViewPlus
+                              android:text="Calculate"
+                              android:layout_height="wrap_content"
+                              android:textColor="#ffffff"
+                              android:textSize="20sp"
+                              android:layout_centerInParent="true"
+                              foo:customFont="litehelvetica.otf"
+                              android:layout_width="wrap_content"></com.divneg.heartlovemeter.TextViewPlus>
+                          
+                      </RelativeLayout>
+                       <LinearLayout 
+                           android:layout_below="@+id/submitbut"
+                           android:layout_centerInParent="true"
+        					android:layout_width="150dp"
+       						android:layout_height="3dp"
+       						 android:background="#8e0101"></LinearLayout>
+      					
+            
+        </RelativeLayout>
+    
+    </LinearLayout>
+    
+    <!-- Main Page ends here -->
+
+</LinearLayout>
